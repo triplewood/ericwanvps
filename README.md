@@ -4,15 +4,15 @@ fork [https://github.com/CCChieh/IBMYes](https://github.com/CCChieh/IBMYes)
 # fork修改内容:
 * `Secrets` 加入 `V2_ID`, `V2_PATH`, `ALTER_ID`,  
   对应`vmess id`, `ws path`, `alterId`
-* 使用actions, 每周自动更新`v2ray`, 部署到 `IBM Cloud Foundray`.
+* 使用actions, 每周自动更新`v2ray`, 部署到 `IBM Cloud Foundry`.
 
 
 # 配置流程
 
-### 配置IBM Cloud Fonudray
+### 配置IBM Cloud Foundry
 * 注册并登录[https://cloud.ibm.com/](https://cloud.ibm.com/)
 * 点击右侧 创建资源
-* 点击`Cloud Foundray`
+* 点击`Cloud Foundry`
 * 创建公共应用程序
 * 填写相关信息: 区域达拉斯(免费). 内存最高256M. 应用名称. 配置资源选Python
 * 应用程序域名 就是 应用名称+域, 比如: `ibmyes.us-south.cf.appdomain.cloud`
@@ -38,7 +38,7 @@ addEventListener(
 ```
 * 点击保存并部署, 这里会给一个网址(比如`cloudflare_workers.dev`), 这个就是 v2ray 客户端要连的地址.
 
-### 利用Github Actions 自动部署 IBM Cloud Fonudray
+### 利用Github Actions 自动部署 IBM Cloud Fonudry
 * 返回 github, 到本项目 [https://github.com/fcying/IBMYes](https://github.com/fcying/IBMYes)
 * 点击右上角 `Use this template`, 生成一个自己的仓库, 在自己的仓库点击 Settings.
 * 点击 `Secrets` 建立以下几个`secret`, 不修改默认值的可以不建:  
