@@ -3,7 +3,7 @@
 cd $(dirname $0)
 
 IBMCLOUD=$(pwd)/Bluemix_CLI/bin/ibmcloud
-CF=~/.bluemix/.cf/cfcli/cf
+CF=$HOME/.bluemix/.cf/cfcli/cf
 #BLUE="\e[00;34m"
 #RED="\e[00;31m"
 #END="\e[0m"
@@ -72,6 +72,7 @@ chmod +x ./$IBM_APP_NAME/d.sh
 #echo "${BLUE}ibmcloud login${END}"
 #$IBMCLOUD login -r us-south <<EOF
 #$IBM_ACCOUNT
+#$IBM_PASSWORD
 #n
 #EOF
 
@@ -80,7 +81,7 @@ chmod +x ./$IBM_APP_NAME/d.sh
 #    $IBMCLOUD target -g $RESOURSE_ID
 #fi
 
-if [ ! -f "$HOME/.bluemix/cfcli/cf" ]; then
+if [ ! -f "$CF" ]; then
     echo "${BLUE}ibmcloud cf install${END}"
     $IBMCLOUD cf install
     #$IBMCLOUD target --cf-api 'https://api.us-south.cf.cloud.ibm.com'
@@ -90,6 +91,7 @@ fi
 echo "${BLUE}cf login${END}"
 $CF login -a https://api.us-south.cf.cloud.ibm.com <<EOF
 $IBM_ACCOUNT
+$IBM_PASSWORD
 EOF
 
 cd ./$IBM_APP_NAME
