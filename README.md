@@ -44,7 +44,8 @@ addEventListener(
 * 点击 `Secrets` 建立以下几个`secret`, 不修改默认值的可以不建:  
     |  |  |
     | ---- | ---- |
-    | IBM_ACCOUNT  | IBM Cloud的登录邮箱和密码, 一行邮箱, 一行密码.   |
+    | IBM_ACCOUNT  | IBM Cloud的登录邮箱.|
+    | IBM_PASSWORD | IBM Cloud的登录密码.|
     | IBM_APP_NAME | IBM应用的名称.|
     | IBM_MEMORY   | IBM应用内存大小, 默认值`256M`.|
     | V2_ID        | vmess id, 默认值`d007eab8-ac2a-4a7f-287a-f0d50ef08680`.|
