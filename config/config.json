@@ -1,60 +1,43 @@
 {
-  "inbounds": [
-    {
-      "sniffing": {
-        "enabled": true,
-        "destOverride": ["http", "tls"]
-      },
-      "port": 8080,
-      "listen":"0.0.0.0",
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "V2_ID",
-            "alterId": ALTER_ID
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "/V2_PATH"
-        }
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {},
-      "tag": "direct"
+    "run_type": "server",
+    "local_addr": "0.0.0.0",
+    "local_port": 443,
+    "remote_addr": "127.0.0.1",
+    "remote_port": 80,
+    "password": null,
+    "log_level": 1,
+    "ssl": {
+        "cert": "./233blog.com.cer",
+        "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384",
+        "cipher_tls13": "TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384",
+        "alpn": [
+            "http/1.1"
+        ],
+        "reuse_session": true,
+        "session_ticket": false,
+        "curves": "",
+        "key": "./233blog.com.key",
+        "key_password": "",
+        "prefer_server_cipher": true,
+        "session_timeout": 600,
+        "plain_http_response": "",
+        "dhparam": ""
     },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "block"
+    "tcp": {
+        "no_delay": true,
+        "keep_alive": true,
+        "reuse_port": false,
+        "fast_open": false,
+        "fast_open_qlen": 20,
+        "prefer_ipv4": false
+    },
+    "mysql": {
+        "enabled": true,
+        "server_addr": "127.0.0.1",
+        "server_port": 30792,
+        "database": "trojan",
+        "username": "root",
+        "password": "UXhQp",
+        "cafile": ""
     }
-  ],
-  "routing": {
-    "domainStrategy": "AsIs",
-    "rules": [
-      {
-        "type": "field",
-        "outboundTag": "block",
-        "protocol": ["bittorrent"]
-      },
-      {
-        "type": "field",
-        "outboundTag": "block",
-        "ip": [
-          "0.0.0.0/8",
-          "10.0.0.0/8",
-          "127.0.0.0/8",
-          "172.16.0.0/12",
-          "192.168.0.0/16"
-        ]
-      }
-    ]
-  }
 }
